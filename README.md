@@ -1,5 +1,7 @@
 # React-Rating-Tooltip
 
+#### [[Original repo](https://github.com/vilvaathibanpb/react-rating-tooltip) by [@vilvaathibanpb](https://github.com/vilvaathibanpb)]
+
 React-rating-tooltip is a simple to use yet completely customizable component for getting use Rating/Reviews.
 
 - Fully CSS customizable - Styles of Rating Counter, star-container, selected status and tooltip style

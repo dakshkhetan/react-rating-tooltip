@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import Star from "./Star";
 import "./App.css";
 
@@ -37,12 +36,15 @@ const Rating = (props: Props) => {
     styleConfig,
     disabled
   } = props;
+
   const stars = new Array(max);
   const currentValue = hover >= 0 ? hover : current;
 
   for (let i = 0; i < stars.length; i++) {
     stars[i] = (
       <Star
+        key={i}
+        index={i}
         tooltipStyle={
           styleConfig && styleConfig.tooltipStyle
             ? styleConfig.tooltipStyle
@@ -52,7 +54,6 @@ const Rating = (props: Props) => {
         selected={i < currentValue ? true : false}
         onMouseLeave={disabled ? () => {} : onMouseLeave}
         onHover={disabled ? () => {} : onHover}
-        index={i}
         selectStar={disabled ? () => {} : setSelected}
         InActiveComponent={props.InActiveComponent}
         ActiveComponent={props.ActiveComponent}
@@ -70,6 +71,7 @@ const Rating = (props: Props) => {
       {current}
     </div>
   );
+
   if (counterPosition) {
     counterPosition === "left"
       ? stars.unshift(counterElement)
@@ -86,6 +88,7 @@ const Rating = (props: Props) => {
       {ratingValue && ratingValue[current - 1] ? ratingValue[current - 1] : "-"}
     </div>
   );
+
   if (textPosition) {
     textPosition === "left"
       ? stars.unshift(textElement)
@@ -96,11 +99,7 @@ const Rating = (props: Props) => {
     <div className="wrap-container">
       <div
         className="rating-container"
-        style={
-          styleConfig && styleConfig.starContainer
-            ? styleConfig.starContainer
-            : {}
-        }
+        style={styleConfig?.starContainer ? styleConfig.starContainer : {}}
       >
         {stars}
       </div>
@@ -164,9 +163,9 @@ type DefaultProps = {
 
 type RequiredProps = {
   max: number;
-  onChange: (index: number, ratingValue: React.ReactNode) => void;
   tooltipContent: React.ReactNode[];
   ratingValue: React.ReactNode[];
+  onChange: (index: number, ratingValue: React.ReactNode) => void;
   ActiveComponent: React.ReactNode;
   InActiveComponent: React.ReactNode;
 };

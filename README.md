@@ -11,15 +11,13 @@ React-rating-tooltip is a simple to use yet completely customizable component fo
 
 ### Installation
 
-This requires [React.js and Prop-Types] to run.
+This requires [React.js] to run.
 
 ```sh
 npm i react-rating-tooltip
 ```
 
 ### Demo
-
-[Sandbox link to Play with](https://codesandbox.io/s/31zl6wop91)
 
 ### How to Use
 

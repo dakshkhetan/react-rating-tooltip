@@ -1,6 +1,18 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
+type Props = {
+  index: number;
+  tooltipStyle: React.CSSProperties;
+  tpText: React.ReactNode;
+  selected: boolean;
+  onMouseLeave: () => void;
+  onHover: (index: number) => void;
+  selectStar: (index: number) => void;
+  InActiveComponent: React.ReactNode;
+  ActiveComponent: React.ReactNode;
+};
+
 const Star = (props: Props) => {
   const [selected, setSelected] = useState(props.selected);
   const [showTooltip, setShowTooltip] = useState(false);
@@ -25,10 +37,10 @@ const Star = (props: Props) => {
 
   return (
     <div
+      className="tp-container"
       onClick={selectStar}
       onMouseOver={onHover}
       onMouseOut={onMouseLeave}
-      className="tp-container"
     >
       {selected ? props.ActiveComponent : props.InActiveComponent}
       {showTooltip && props.tpText && (
@@ -38,19 +50,6 @@ const Star = (props: Props) => {
       )}
     </div>
   );
-};
-
-type Props = {
-  tooltipStyle: React.CSSProperties;
-  tpText: React.ReactNode;
-  selected: boolean;
-  key: number;
-  onMouseLeave: () => void;
-  onHover: (index: number) => void;
-  index: number;
-  selectStar: (index: number) => void;
-  InActiveComponent: React.ReactNode;
-  ActiveComponent: React.ReactNode;
 };
 
 export default Star;

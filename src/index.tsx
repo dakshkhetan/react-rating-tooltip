@@ -43,7 +43,7 @@ const Rating = (props: Props) => {
   for (let i = 0; i < stars.length; i++) {
     stars[i] = (
       <Star
-        key={i}
+        // key={i}
         index={i}
         tooltipStyle={
           styleConfig && styleConfig.tooltipStyle
@@ -111,8 +111,6 @@ Rating.defaultProps = {
   clearRating: true,
   disabled: false,
   defaultRating: 0,
-  counterPosition: "left",
-  textPosition: "right",
   styleConfig: {
     counterStyle: {
       height: "28px",
@@ -153,6 +151,7 @@ type DefaultProps = {
   defaultRating: number;
   counterPosition: Position;
   textPosition: Position;
+  tooltipContent: React.ReactNode[];
   styleConfig: {
     counterStyle: React.CSSProperties;
     starContainer: React.CSSProperties;
@@ -163,7 +162,6 @@ type DefaultProps = {
 
 type RequiredProps = {
   max: number;
-  tooltipContent: React.ReactNode[];
   ratingValue: React.ReactNode[];
   onChange: (index: number, ratingValue: React.ReactNode) => void;
   ActiveComponent: React.ReactNode;

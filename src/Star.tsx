@@ -15,7 +15,7 @@ type Props = {
 
 const Star = (props: Props) => {
   const [selected, setSelected] = useState(props.selected);
-  const [showTooltip, setShowTooltip] = useState(false);
+  // const [showTooltip, setShowTooltip] = useState(false);
 
   useEffect(() => {
     setSelected(props.selected);
@@ -23,12 +23,12 @@ const Star = (props: Props) => {
 
   const onHover = () => {
     props.onHover(props.index);
-    setShowTooltip(true);
+    // setShowTooltip(true);
   };
 
   const onMouseLeave = () => {
     props.onMouseLeave();
-    setShowTooltip(false);
+    // setShowTooltip(false);
   };
 
   const selectStar = () => {
@@ -43,11 +43,11 @@ const Star = (props: Props) => {
       onMouseOut={onMouseLeave}
     >
       {selected ? props.ActiveComponent : props.InActiveComponent}
-      {showTooltip && props.tpText && (
+      {/* {showTooltip && props.tpText && (
         <span className="tooltiptext" style={props.tooltipStyle}>
           {props.tpText}
         </span>
-      )}
+      )} */}
     </div>
   );
 };

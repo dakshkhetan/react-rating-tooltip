@@ -4,8 +4,6 @@ declare const Rating: {
     clearRating: boolean;
     disabled: boolean;
     defaultRating: number;
-    counterPosition: string;
-    textPosition: string;
     styleConfig: {
       counterStyle: {
         height: string;
@@ -47,6 +45,7 @@ declare type DefaultProps = {
   defaultRating: number;
   counterPosition: Position;
   textPosition: Position;
+  tooltipContent: React.ReactNode[];
   styleConfig: {
     counterStyle: React.CSSProperties;
     starContainer: React.CSSProperties;
@@ -57,7 +56,6 @@ declare type DefaultProps = {
 
 declare type RequiredProps = {
   max: number;
-  tooltipContent: React.ReactNode[];
   ratingValue: React.ReactNode[];
   onChange: (index: number, ratingValue: React.ReactNode) => void;
   ActiveComponent: React.ReactNode;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import Star from "./Star";
 import "./App.css";
@@ -21,8 +21,8 @@ const Rating = (props: Props) => {
   };
 
   const onHover = (index: number) => {
-    setHover(index + 1)
-  }
+    setHover(index + 1);
+  };
 
   const onMouseLeave = () => {
     setHover(-1);
@@ -61,25 +61,35 @@ const Rating = (props: Props) => {
   }
 
   const counterElement = (
-    <div key={stars.length + 1} style={styleConfig && styleConfig.counterStyle ? styleConfig.counterStyle : {}}>
+    <div
+      key={stars.length + 1}
+      style={
+        styleConfig && styleConfig.counterStyle ? styleConfig.counterStyle : {}
+      }
+    >
       {current}
     </div>
   );
   if (counterPosition) {
-    counterPosition === 'left'
+    counterPosition === "left"
       ? stars.unshift(counterElement)
-      : stars.push(counterElement)
+      : stars.push(counterElement);
   }
 
   const textElement = (
-    <div key={stars.length + 1} style={styleConfig && styleConfig.statusStyle ? styleConfig.statusStyle : {}}>
-      {ratingValue && ratingValue[current - 1] ? ratingValue[current - 1] : '-'}
+    <div
+      key={stars.length + 1}
+      style={
+        styleConfig && styleConfig.statusStyle ? styleConfig.statusStyle : {}
+      }
+    >
+      {ratingValue && ratingValue[current - 1] ? ratingValue[current - 1] : "-"}
     </div>
   );
   if (textPosition) {
-    textPosition === 'left'
+    textPosition === "left"
       ? stars.unshift(textElement)
-      : stars.push(textElement)
+      : stars.push(textElement);
   }
 
   return (
@@ -98,13 +108,12 @@ const Rating = (props: Props) => {
   );
 };
 
-
 Rating.defaultProps = {
   clearRating: true,
   disabled: false,
   defaultRating: 0,
-  counterPosition: 'left',
-  textPosition: 'right',
+  counterPosition: "left",
+  textPosition: "right",
   styleConfig: {
     counterStyle: {
       height: "28px",
@@ -135,32 +144,32 @@ Rating.defaultProps = {
       padding: "5px"
     }
   }
-}
+};
 
-type Position = 'left' | 'right';
+type Position = "left" | "right";
 
 type DefaultProps = {
-  clearRating: boolean,
-  disabled: boolean,
-  defaultRating: number,
-  counterPosition: Position,
-  textPosition: Position,
+  clearRating: boolean;
+  disabled: boolean;
+  defaultRating: number;
+  counterPosition: Position;
+  textPosition: Position;
   styleConfig: {
-    counterStyle: React.CSSProperties,
-    starContainer: React.CSSProperties,
-    statusStyle: React.CSSProperties,
-    tooltipStyle: React.CSSProperties
-  }
+    counterStyle: React.CSSProperties;
+    starContainer: React.CSSProperties;
+    statusStyle: React.CSSProperties;
+    tooltipStyle: React.CSSProperties;
+  };
 };
 
 type RequiredProps = {
-  max: number,
-  onChange: (index: number, ratingValue: React.ReactNode) => void,
-  tooltipContent: React.ReactNode[],
-  ratingValue: React.ReactNode[],
-  ActiveComponent: React.ReactNode,
-  InActiveComponent: React.ReactNode
-}
+  max: number;
+  onChange: (index: number, ratingValue: React.ReactNode) => void;
+  tooltipContent: React.ReactNode[];
+  ratingValue: React.ReactNode[];
+  ActiveComponent: React.ReactNode;
+  InActiveComponent: React.ReactNode;
+};
 
 type Props = RequiredProps & DefaultProps;
 
